@@ -9,7 +9,13 @@ A native macOS menu bar client for [llama-swap](https://github.com/mostlygeek/ll
 
 ## Install
 
-Not yet on Homebrew. For now, build from source:
+### Homebrew
+
+```sh
+brew install johnseth97/swapbar/swapbar
+```
+
+### From source
 
 ```sh
 git clone git@github.com:johnseth97/llama-swap-SwapBar.git
@@ -34,7 +40,6 @@ Build and run with ⌘R. SwapBar defaults to `http://localhost:8090` — change 
 - Memory/CPU/GPU reporting in the dropdown
 - Launch at login
 - A Quit menu item (stop it from Activity Monitor or Xcode for now)
-- Code signing, notarization, and a Homebrew cask
 
 See [`.agents/SwapBar-spec.md`](.agents/SwapBar-spec.md) for the full build plan, the live-verification findings behind it, and what's still ahead.
 
