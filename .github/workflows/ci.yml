@@ -8,7 +8,12 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: macos-14
+    # This project's .pbxproj is written in Xcode's project file format 110 — newer than
+    # what Xcode 15.4 (macos-14 runner) or any stable Xcode release can open. `xcode-27` is
+    # GitHub's preview runner bundling Xcode 27 beta (macOS 27 SDK), which matches the
+    # toolchain this project was actually built with. Move to a stable `macos-*` runner
+    # once Xcode 27 ships and a non-preview image carries it.
+    runs-on: xcode-27
 
     steps:
       - uses: actions/checkout@v4
