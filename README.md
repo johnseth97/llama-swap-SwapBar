@@ -2,6 +2,12 @@
 
 A native macOS menu bar client for [llama-swap](https://github.com/mostlygeek/llama-swap). Glance at the menu bar to see whether a model is loaded, watch the icon shift color while a request is in flight, and manage models without opening a browser tab.
 
+```sh
+brew install johnseth97/swapbar/swapbar
+```
+
+![SwapBar demo](.github/demo.gif)
+
 ## Requirements
 
 - macOS 14.0 or later
@@ -9,11 +15,7 @@ A native macOS menu bar client for [llama-swap](https://github.com/mostlygeek/ll
 
 ## Install
 
-### Homebrew
-
-```sh
-brew install johnseth97/swapbar/swapbar
-```
+Homebrew tap: [johnseth97/homebrew-swapbar](https://github.com/johnseth97/homebrew-swapbar) (`brew install johnseth97/swapbar/swapbar`, see above).
 
 ### From source
 
