@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: macos-14
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: >
+          xcodebuild build
+          -project SwapBar.xcodeproj
+          -scheme SwapBar
+          -destination 'platform=macOS'
+          CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO
+
+      - name: Run unit tests
+        run: >
+          xcodebuild test
+          -project SwapBar.xcodeproj
+          -scheme SwapBar
+          -destination 'platform=macOS'
+          -only-testing:SwapBarTests
+          CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO
