@@ -97,8 +97,6 @@ jobs:
           DMG_PATH="$RUNNER_TEMP/$APP_NAME-$VERSION.dmg"
           hdiutil create -volname "$APP_NAME" -srcfolder "$STAGING" -ov -format UDZO "$DMG_PATH"
 
-          xcrun stapler staple "$DMG_PATH"
-
           echo "DMG_PATH=$DMG_PATH" >> "$GITHUB_ENV"
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
