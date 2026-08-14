@@ -41,6 +41,10 @@ jobs:
           rm -f "$CERT_PATH"
 
       - name: Archive
+        # Automatic signing (the project's default for local dev builds) looks for a "Mac
+        # Development" identity, which we don't have in CI — only a Developer ID Application
+        # cert. Override to manual signing with that identity for the archive itself; export
+        # signing is controlled separately by ExportOptions.plist.
         run: >
           xcodebuild archive
           -project SwapBar.xcodeproj
@@ -48,6 +52,10 @@ jobs:
           -configuration Release
           -archivePath "$RUNNER_TEMP/$APP_NAME.xcarchive"
           -destination 'generic/platform=macOS'
+          CODE_SIGN_STYLE=Manual
+          CODE_SIGN_IDENTITY="Developer ID Application"
+          DEVELOPMENT_TEAM=427Y9Z8Y78
+          PROVISIONING_PROFILE_SPECIFIER=""
 
       - name: Export (Developer ID signed)
         run: >
